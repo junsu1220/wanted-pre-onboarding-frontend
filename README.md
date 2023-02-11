@@ -83,6 +83,8 @@
 
 ## 성능 최적화
 
+<img src="https://user-images.githubusercontent.com/87622597/218252693-e635a800-0a41-4105-9dc2-808dc9fb98fe.PNG" width="500" height="450"/>
+
 # 4. 프로젝트 설치 및 실행
 
 1. root 경로에 .env 파일 생성

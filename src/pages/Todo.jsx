@@ -1,9 +1,13 @@
 import { Fragment, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import TodoList from "../components/todo/TodoList";
+import TodoForm from "../components/todo/TodoForm";
+import useTodo from "../hooks/useTodo";
 
 const Todo = () => {
   const navigate = useNavigate();
+  const { todoList, postTodo, updateTodo, deleteTodo } = useTodo();
 
   // 로컬 스토리지 토큰 확인
   const is_token = localStorage.getItem("access_token") ? true : false;
@@ -21,11 +25,28 @@ const Todo = () => {
 
   return (
     <Fragment>
-      <div>todo</div>
-      <LogoutDiv onClick={logout}>logout</LogoutDiv>
+      <Header>
+        <div>TodoList</div>
+        <LogoutDiv onClick={logout}>logout</LogoutDiv>
+      </Header>
+      <TodoForm postTodo={postTodo} />
+      <TodoList
+        todoList={todoList}
+        updateTodo={updateTodo}
+        deleteTodo={deleteTodo}
+      />
     </Fragment>
   );
 };
+
+const Header = styled.div`
+  border: 1px solid #ddd;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+`;
 
 const LogoutDiv = styled.div`
   cursor: pointer;

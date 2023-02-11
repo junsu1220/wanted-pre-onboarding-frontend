@@ -7,7 +7,7 @@ const api = axios.create({
 
 // 로컬스토리지의 토큰유무를 판별
 const getToken = async () => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("access_token");
   if (token) {
     return `Bearer ${token}`;
   } else {
@@ -31,3 +31,5 @@ export const signinApi = async (email, password) => {
 export const signupApi = async (email, password) => {
   return api.post("/auth/signup", { email, password });
 };
+
+export default api;

@@ -163,23 +163,20 @@ const Signup = () => {
               </PasswordAlarmText>
             )}
           </PasswordContainer>
-          <ButtonContainer>
-            <SignupButton
-              className={
-                !emailNotice && !emailError && !passwordNotice && !passwordError
-                  ? "possible"
-                  : null
-              }
-              type="submit"
-              data-testid="signup-button"
-              disabled={
-                (!emailNotice && emailError) ||
-                (!passwordNotice && passwordError)
-              }
-            >
-              회원가입
-            </SignupButton>
-          </ButtonContainer>
+          <SignupButton
+            className={
+              !emailNotice && !emailError && !passwordNotice && !passwordError
+                ? "possible"
+                : null
+            }
+            type="submit"
+            data-testid="signup-button"
+            disabled={
+              (!emailNotice && emailError) || (!passwordNotice && passwordError)
+            }
+          >
+            회원가입
+          </SignupButton>
         </Form>
       </Container>
     </Fragment>
@@ -280,17 +277,6 @@ const PasswordInput = styled.input`
 
   ::placeholder {
     font-size: 14px;
-  }
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 30%;
-
-  button {
-    width: 100%;
-    height: 3em;
   }
 `;
 

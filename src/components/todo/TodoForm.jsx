@@ -25,7 +25,12 @@ const TodoForm = ({ postTodo }) => {
 
   return (
     <StForm onSubmit={onSubmitHandler} className="add-form">
-      <label>
+      <label
+        onClick={(e) => {
+          e.preventDefault();
+        }}
+      >
+        todo input:
         <StInput
           type="text"
           name="todo"

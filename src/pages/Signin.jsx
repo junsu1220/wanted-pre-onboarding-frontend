@@ -167,28 +167,25 @@ const Signin = () => {
               </PasswordAlarmText>
             )}
           </PasswordContainer>
-          <ButtonContainer>
-            <SigninButton
-              className={
-                !emailNotice && !emailError && !passwordNotice && !passwordError
-                  ? "possible"
-                  : null
-              }
-              type="submit"
-              data-testid="signin-button"
-              disabled={
-                (!emailNotice && emailError) ||
-                (!passwordNotice && passwordError)
-              }
-            >
-              로그인
-            </SigninButton>
-          </ButtonContainer>
-          <SignupContainer>
-            <span>계정이 없으신가요? 지금 바로 가입하세요!</span>
-            <SignupButton onClick={onClickSignup}>회원가입</SignupButton>
-          </SignupContainer>
+          <SigninButton
+            className={
+              !emailNotice && !emailError && !passwordNotice && !passwordError
+                ? "possible"
+                : null
+            }
+            type="submit"
+            data-testid="signin-button"
+            disabled={
+              (!emailNotice && emailError) || (!passwordNotice && passwordError)
+            }
+          >
+            로그인
+          </SigninButton>
         </Form>
+        <SignupContainer>
+          <span>계정이 없으신가요? 지금 바로 가입하세요!</span>
+          <SignupButton onClick={onClickSignup}>회원가입</SignupButton>
+        </SignupContainer>
       </Container>
     </Fragment>
   );
@@ -225,6 +222,10 @@ const Form = styled.form`
   border: 2px solid ${blue};
   border-radius: 10px;
   box-sizing: border-box;
+
+  @media screen and (max-width: ${mobile}) {
+    top: 20px;
+  }
 `;
 
 const EmailContainer = styled.div`
@@ -254,12 +255,14 @@ const EmailInput = styled.input`
 `;
 
 const EmailAlarmText = styled.span`
+  margin: 3px 0 0;
   &.black {
     color: black;
   }
 `;
 
 const PasswordAlarmText = styled.span`
+  margin: 3px 0 0;
   &.black {
     color: black;
   }
@@ -288,17 +291,6 @@ const PasswordInput = styled.input`
 
   ::placeholder {
     font-size: 14px;
-  }
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 30%;
-
-  button {
-    width: 100%;
-    height: 3em;
   }
 `;
 
